@@ -7,7 +7,7 @@ const CHAT_HISTORY_KEY = "chatbotMessages";
 const DEFAULT_ASSISTANT_MESSAGE = {
   role: "assistant",
   content:
-    "Hi there! I'm Chandra Pavan's AI assistant. Ask me anything about his experience, skills, or projects.",
+    "Hi there! I'm Manikanta Tanniru's AI assistant. Ask me anything about his experience, skills, or projects.",
 };
 
 function Chatbot() {
@@ -155,7 +155,7 @@ function Chatbot() {
         const answer =
           data?.answer ||
           data?.response ||
-          "I'm not sure how to answer that yet, but Chandra keeps teaching me new things!";
+          "I'm not sure how to answer that yet, but manikanta keeps teaching me new things!";
         replaceAssistantContent(answer);
         return;
       }
@@ -233,7 +233,7 @@ function Chatbot() {
               <Form onSubmit={handleSubmit} className="chatbot-form">
                 <Form.Control
                   type="text"
-                  placeholder="Ask anything about Chandra Pavan..."
+                  placeholder="Ask anything about manikanta tanniru..."
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
                   disabled={isSubmitting}

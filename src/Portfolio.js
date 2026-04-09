@@ -3,17 +3,16 @@ const portfolio = {
     // =======================
     // 🔹 Personal Information
     // =======================
-    name: "Chandra Pavan Reddy Chada",
+    name: "Manikanta Tanniru",
     title: "Full-Stack Engineer | GenAI Developer",
     subTitle:
       "Half logic, half caffeine, but fully committed to making weird ideas real.",
-    email: "chandrapavanreddy@gmail.com",
-    phone: "+1 (669) 369-9147",
+    email: "tannirumanikanta1996@gmail.com",
+    phone: "+1 (408)650-2162",
     location: "San Jose, California, USA",
-    resumeLink: "https://github.com/chandrapavan1104", // optional direct resume or GitHub link
     socialLinks: {
-      linkedin: "https://linkedin.com/in/chandra-pavan",
-      github: "https://github.com/chandrapavan1104",
+      linkedin: "https://www.linkedin.com/in/manikanta-tanniru-380239252/",
+      github: "https://github.com/manikantaTanniru?tab=repositories",
     },
   
     // =======================
@@ -69,172 +68,115 @@ const portfolio = {
       {
         degree: "Master of Science in Software Engineering",
         institution: "San Jose State University, California, USA",
-        duration: "Jan 2022 – Dec 2023",
+        duration: "Jan 2022 – May 2023",
       },
       {
-        degree: "Bachelor of Technology in Computer Science",
-        institution: "VNR Vignana Jyothi Institute of Engineering and Technology, Hyderabad, India",
-        duration: "July 2017 – May 2021",
+        degree: "Bachelor of Engineering in Computer Science and Engineering",
+        institution: "K L University, Andhra Pradesh, India",
+        duration: "June 2015 – May 2019",
       },
     ],
-  
+    
     // =======================
     // 🔹 Experience
     // =======================
     experience: [
       {
-        title: "Full-Stack Engineer",
-        company: "Xnode.ai",
-        duration: "July 2024 – Present",
+        title: "Software Development Engineer",
+        company: "Amazon, Sunnyvale, CA",
+        duration: "Feb 2025 – Present",
         details: [
-          "At Xnode, I contributed to building advanced GenAI-powered features by integrating large language models (LLMs) into our platform.",
-          "I worked on projects like file summarization, navigation bots, and a voice agent interface, focusing on clean, modular architecture and scalable design. ",
-          "I used tools like Whisper, LangChain, and vector databases to implement multimodal workflows and retrieval-augmented generation (RAG). ",
-          "My role spanned both frontend and backend, ensuring smooth user experiences and high system reliability.",
+          "Working on Hummingbird, an event-driven integration platform enabling real-time data exchange across Amazon Robotics systems and external partners.",
+          "Designed and implemented workflow-based integrations across systems like Oracle EBS, Kinaxis, PLM, SAP, and Proplanner.",
+          "Built scalable AWS-based orchestration pipelines using Step Functions, EventBridge, Lambda, and SQS.",
+          "Contributed to self-service workflow onboarding, supporting high-scale systems handling 100K+ requests/sec.",
+          "Developed Project Horus, an automated testing platform that reduced manual testing effort by 3000+ hours annually.",
+          "Built centralized test automation platform using React, AWS Lambda, ECS Fargate, and Step Functions.",
+          "Reduced testing infrastructure cost by 93% using auto-scaling cloud-based worker fleets.",
+          "Worked on Mockingbird, an internal access management platform, improving user visibility and automation workflows.",
+          "Optimized backend services with pagination, API rate limiting, and CloudWatch monitoring.",
         ],
       },
       {
-        title: "Software Engineer",
-        company: "Oriana Software Solutions",
-        duration: "Aug 2023 – July 2024",
+        title: "Full Stack Developer",
+        company: "DarioHealth, USA",
+        duration: "June 2023 – Feb 2025",
         details: [
-          "Developed REST APIs with FastAPI backend and React frontend using Redux and Tailwind CSS.",
-          "Implemented JWT authentication and built fault-tolerant API communication.",
+          "Built dynamic frontend applications using React and TypeScript, improving responsiveness by 30%.",
+          "Developed dashboards and data visualizations using Chart.js, D3.js, and Highcharts.",
+          "Implemented RESTful APIs and GraphQL services, improving data fetching efficiency and reducing latency by 35%.",
+          "Worked across full SDLC including design, development, and deployment using Agile practices.",
         ],
       },
       {
         title: "Software Developer",
-        company: "VirtuTech Solutions",
-        duration: "Jan 2020 – Jan 2022",
+        company: "Veritas Software, India",
+        duration: "June 2019 – July 2021",
         details: [
-          "Developed e-commerce and logistics apps using React, TypeScript, and Node.js.",
-          "Automated CI/CD with AWS CodePipeline and Docker, reducing deployment time by 40%.",
+          "Developed backend services using Django and Flask with REST APIs and authentication.",
+          "Built scalable applications using Spring MVC, Spring Core, and Hibernate.",
+          "Improved system performance by 40% through optimized database interactions.",
+          "Enhanced system reliability by 20% through robust backend design.",
         ],
       },
     ],
   
-    // =======================
-    // 🔹 Projects
-    // =======================
-    projects: [
-      {
-        name: "Kirana.ai",
-        techStack: [
-          "Next.js",
-          "TailwindCSS",
-          "Python",
-          "FastAPI",
-          "Whisper",
-          "Llama-3.3-70B",
-          "Phidata",
-        ],
-        description:
-          "A Gen-AI voice-activated inventory management system for Kirana shops. Integrated Whisper for multilingual transcription and Llama-3.3-70B for NLP workflows on Groq Cloud. Enables natural voice commands to add, update, and retrieve inventory.",
-        github: "https://github.com/chandrapavan1104/Kirana.ai",
-        demo: "", // optional demo link if deployed
-      },
-      {
-        name: "Profile Bot",
-        techStack: [
-          "LangChain",
-          "ChromaDB",
-          "FastAPI",
-          "GCP Cloud Run",
-          "GCS",
-          "OpenAI API",
-        ],
-        description:
-          "AI chatbot that answers questions about my profile and experience. Uses vector database for context retrieval and LangChain for reasoning. Deployed on GCP with dynamic document ingestion.",
-        github: "https://github.com/chandrapavan1104/Profile_bot",
-        demo: "",
-      },
-      {
-        name: "Flight Finder",
-        techStack: ["React.js", "Flask", "REST API", "OpenSky API"],
-        description:
-          "AI-enabled flight search tool integrating OpenSky APIs to fetch and visualize real-time flight data with smart filtering.",
-        github: "https://github.com/chandrapavan1104/FlightFinder",
-        demo: "",
-      },
-      {
-        name: "RBAC Management System",
-        techStack: ["Angular", "Node.js", "Express", "PostgreSQL", "AWS RDS"],
-        description:
-          "SaaS-based Role-Based Access Control platform with six-level permission granularity. Includes JWT authentication, real-time role updates, and Angular UI for visualization. Reduced access management time by 40%.",
-        github: "https://github.com/chandrapavan1104/RBAC",
-        demo: "",
-      },
-      {
-        name: "ChessMaster",
-        techStack: ["Next.js", "TailwindCSS", "Python", "Flask", "Stockfish"],
-        description:
-          "Web-based chess application with AI move prediction using Stockfish. Deployed on AWS (EC2 & S3). Features include move analysis, dark mode, and interactive gameplay.",
-        github: "https://github.com/chandrapavan1104/ChessMaster",
-        demo: "",
-      },
-      {
-        name: "Paint with C",
-        techStack: ["Turbo C/C++"],
-        description:
-          "A graphics-based drawing program built using Turbo C/C++ with a 15-color palette and shape tools like line, ellipse, and rectangle. Introduced mouse interaction for freehand drawing and viewport management.",
-        github: "https://github.com/chandrapavan1104/Wonders-with-C/blob/main/Paint_Tools_Final.CPP",
-        demo: "",
-      },
- 
-      {
-        name: "Ecficio",
-        techStack: ["React.js", "Node.js", "MongoDB", "Express", "AWS"],
-        description:
-          "Corporate management dashboard enabling admins to manage company workflows with real-time metrics and role-based access.",
-        github: "https://github.com/chandrapavan1104/Ecficio",
-        demo: "",
-      },
-
-      {
-        name: "Fitnessclub",
-        techStack: [
-          "Angular CLI 9.1.5",
-          "Node.js",
-          "JavaScript",
-          "TypeScript",
-          "HTML",
-          "SCSS",
-          "Karma",
-          "Protractor"
-        ],
-        description: "A MEAN stack web application designed for a Fitness Store. It features a full-stack architecture with an Angular front-end for a modern user experience and a Node.js/Express.js back-end for handling user accounts, fitness course listings, and other store functionalities.",
-        github: "https://github.com/chandrapavan1104/Fitnessclub",
-        demo: ""
-      },
-      {
-        name: "Recipe_Store",
-        techStack: [
-          "React (JavaScript/CSS/HTML)",
-          "Django (Python)",
-          "Python",
-          "JavaScript",
-          "HTML",
-          "CSS"
-        ],
-        description: "A full-stack web application for a Recipe Store, serving as a go-to platform for users to find and try new food recipes. It utilizes a React framework for the modern, dynamic front-end user interface and Django (Python-based) for the robust back-end.",
-        github: "https://github.com/chandrapavan1104/Recipe_Store",
-        demo: ""
-      }
+  // =======================
+// 🔹 Projects
+// =======================
+projects: [
+  {
+    name: "Kirana.ai",
+    techStack: [
+      "Next.js",
+      "TailwindCSS",
+      "Python",
+      "FastAPI",
+      "Whisper",
+      "Llama-3",
+      "Vector DB"
     ],
+    description:
+      "Gen-AI voice-based inventory system for small retail (Kirana) stores. Supports multilingual voice input using Whisper and processes commands using LLM workflows. Enables users to add, update, and query inventory through natural conversation.",
+    github: "https://github.com/manikantaTanniru",
+    demo: "",
+  },
+  {
+    name: "Profile Bot",
+    techStack: [
+      "LangChain",
+      "ChromaDB",
+      "FastAPI",
+      "GCP Cloud Run",
+      "GCS",
+      "OpenAI API"
+    ],
+    description:
+      "AI chatbot that answers questions about my experience and projects using retrieval-based generation. Uses vector embeddings for context and is deployed on GCP with dynamic document ingestion.",
+    github: "https://github.com/manikantaTanniru",
+    demo: "",
+  },
+  {
+    name: "Flight Finder",
+    techStack: ["React.js", "Flask", "REST API", "OpenSky API"],
+    description:
+      "Flight search application that fetches and visualizes real-time flight data using OpenSky APIs, with filtering and user-friendly UI for exploration.",
+    github: "https://github.com/manikantaTanniru",
+    demo: "",
+  }
+],
   
     // =======================
     // 🔹 About Me
     // =======================
     about:
-      "Hi, I’m Chandra Pavan Reddy Chada, a passionate Full-Stack Engineer specializing in building scalable and intelligent web applications. I love integrating AI and automation into everyday products using technologies like React, Angular, Python, and Node.js. My work spans from creating GenAI-powered agents and RAG systems to designing efficient SaaS platforms and real-time dashboards. I believe in writing clean, maintainable code and constantly learning new tools that make technology more impactful." ,
+      "Hi, I’m Manikanta Tanniru, a Full-Stack Software Engineer with 5+ years of experience building scalable and distributed systems. Currently working at Amazon Robotics, I focus on backend systems, event-driven architectures, and cloud-based solutions using AWS. I’ve worked on platforms like Hummingbird, Horus, and Mockingbird, building integrations across enterprise systems and improving automation at scale. I enjoy designing clean, reliable systems and continuously learning new technologies to solve real-world problems.",
     // =======================
     // 🔹 Contact Info
     // =======================
-    contact: {
-      email: "chandrapavanreddy@gmail.com",
-      linkedin: "https://linkedin.com/in/chandra-pavan",
-      github: "https://github.com/chandrapavan1104",
-    },
+    email: "tannirumanikanta1996@gmail.com",
+    linkedin: "https://www.linkedin.com/in/manikanta-tanniru",
+    github: "https://github.com/manikantaTanniru"
   };
   
   export default portfolio;

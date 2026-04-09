@@ -18,7 +18,7 @@ Forking and customizing the site is intentionally simple: **update a single data
 - React 18 + Vite
 - React-Bootstrap & custom CSS
 - React Router
-- Hosted chatbot endpoint ([Profile Bot](https://github.com/chandrapavan1104/Profile_bot))
+- Hosted chatbot endpoint ([Profile Bot](https://github.com/manikantaTanniru/Profile_bot))
 
 ## Quick Start
 
@@ -60,7 +60,6 @@ const portfolio = {
       techStack: ["React", "Node", "PostgreSQL"],
       description: "Project summary...",
       github: "https://github.com/you/project",
-      demo: "https://your-demo-link.com"
     },
   ],
   // ...
@@ -71,7 +70,7 @@ Once you save the file, the site hot-reloads with your content. No additional co
 
 ## Chatbot Integration
 
-The chatbot section sends user questions to my hosted Profile Bot API (`https://profile-bot-api-977721269659.us-west2.run.app/ask`). If you want to run your own assistant or extend its knowledge base, follow the setup guide in the companion repo: **[chandrapavan1104/Profile_bot](https://github.com/chandrapavan1104/Profile_bot)**.
+The chatbot section sends user questions to my hosted Profile Bot API (`https://profile-bot-api-977721269659.us-west2.run.app/ask`). If you want to run your own assistant or extend its knowledge base, follow the setup guide in the companion repo: **[manikantaTanniru/Profile_bot](https://github.com/manikantaTanniru/Profile_bot)**.
 
 ### Using your own bot
 

@@ -12,7 +12,7 @@ const portfolio = {
     location: "San Jose, California, USA",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/manikanta-tanniru-380239252/",
-      github: "https://github.com/manikantaTanniru?tab=repositories",
+      github: "https://github.com/manikantaTanniru",
     },
   
     // =======================

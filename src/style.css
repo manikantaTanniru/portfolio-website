@@ -164,18 +164,18 @@ button:focus {
   width: 2.5em !important;
 }
 
-.cpr-logo {
+.mt-logo {
   height: 40px;
   width: auto;
   transition: transform 0.25s ease;
 }
 
-.cpr-logo:hover {
+.mt-logo:hover {
   transform: scale(1.05);
 }
 
 @media (max-width: 767px) {
-  .cpr-logo {
+  .mt-logo {
     height: 32px;
   }
 }

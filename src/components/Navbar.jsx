@@ -40,7 +40,7 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-          <img src={logo} className="cpr-logo" alt="CPR logo" />
+          <img src={logo} className="mt-logo" alt="MT logo" />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"

@@ -9,6 +9,7 @@ function Techstack() {
     "backend",
     "databases",
     "cloudDevops",
+    "dataStreaming",
     "aiMl",
     "others",
   ];

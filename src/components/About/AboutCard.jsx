@@ -27,7 +27,7 @@ function AboutCard() {
             )}
             {topEducation && (
               <>
-                I completed my{" "}
+                I{topEducation.inProgress ? "'m pursuing my" : " completed my"}{" "}
                 <span className="purple">{topEducation.degree}</span> at{" "}
                 <span className="purple">{topEducation.institution}</span>.
               </>

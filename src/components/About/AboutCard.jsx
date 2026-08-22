@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Tilt from "react-parallax-tilt";
 import { ImPointRight } from "react-icons/im";
 import portfolio from "../../Portfolio";
 
@@ -9,6 +10,16 @@ function AboutCard() {
   const focusAreas = ["Full-Stack Development", "GenAI Development", "Problem Solving -  DSA"];
 
   return (
+    <Tilt
+      tiltMaxAngleX={7}
+      tiltMaxAngleY={7}
+      glareEnable
+      glareMaxOpacity={0.12}
+      glareColor="#ffffff"
+      glarePosition="all"
+      scale={1.02}
+      transitionSpeed={800}
+    >
     <Card className="quote-card-view">
       <Card.Body>
         <blockquote className="blockquote mb-0">
@@ -54,6 +65,7 @@ function AboutCard() {
         </blockquote>
       </Card.Body>
     </Card>
+    </Tilt>
   );
 }
 

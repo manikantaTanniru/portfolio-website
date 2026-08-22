@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Tilt from "react-parallax-tilt";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsStarFill } from "react-icons/bs";
 
@@ -27,6 +28,18 @@ function ProjectCards(props) {
     : "";
 
   return (
+    <Tilt
+      tiltMaxAngleX={9}
+      tiltMaxAngleY={9}
+      glareEnable
+      glareMaxOpacity={0.15}
+      glareColor="#ffffff"
+      glarePosition="all"
+      glareBorderRadius="18px"
+      scale={1.03}
+      transitionSpeed={900}
+      className="project-tilt-wrapper"
+    >
     <Card className={`project-card-view${featured ? " featured" : ""}`}>
       {featured && (
         <div className="project-featured-badge">
@@ -92,6 +105,7 @@ function ProjectCards(props) {
         )}
       </Card.Body>
     </Card>
+    </Tilt>
   );
 }
 

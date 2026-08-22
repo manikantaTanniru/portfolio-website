@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Preloader from "./components/Pre";
+import FloatingBlobs from "./components/FloatingBlobs";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/Home/HomePage";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
+import SystemDesign from "./components/SystemDesign/SystemDesign";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import Chatbot from "./components/Chatbot/Chatbot";
@@ -26,12 +28,14 @@ function AppLayout({ load }) {
   return (
     <>
       <Preloader load={load} />
+      <FloatingBlobs />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/project" element={<Projects />} />
+          <Route path="/system-design" element={<SystemDesign />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/chatbot" element={<Chatbot />} />

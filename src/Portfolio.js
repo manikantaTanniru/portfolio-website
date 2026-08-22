@@ -240,7 +240,121 @@ projects: [
     demo: "",
   }
 ],
-  
+
+  // =======================
+  // 🔹 System Design Case Studies
+  // =======================
+  systemDesigns: [
+    {
+      id: "veroTx-ai-workflows",
+      name: "Agent-Orchestrated AI Workflow Platform",
+      company: "VeroTX Networks",
+      tagline:
+        "Safely running hundreds of concurrent, multi-step AI workflows with a human in the loop.",
+      problem:
+        "Personalized content generation needed an LLM in the loop for planning, generation, and evaluation — but calling a model directly from a request handler doesn't survive production traffic. Requests needed to queue, retry, and pause for human approval without losing state, while keeping P99 latency under 200ms for the surrounding system.",
+      decisions: [
+        {
+          title: "Step Functions as the workflow spine",
+          detail:
+            "Each request becomes a state machine: plan → generate → evaluate → approve. State persists between steps, so a slow LLM call or a pending human approval doesn't tie up compute or lose progress on failure.",
+        },
+        {
+          title: "Throttling + retries at the orchestration layer, not the client",
+          detail:
+            "Concurrency limits and exponential backoff live in the Step Functions / Lambda layer, so hundreds of simultaneous requests degrade gracefully instead of stampeding Bedrock.",
+        },
+        {
+          title: "DynamoDB as the audit-first store",
+          detail:
+            "Every artifact, approval, and intermediate state is written to DynamoDB with IAM-scoped access — not just for recovery, but because generated content needs a traceable approval record.",
+        },
+        {
+          title: "Circuit breakers over blind retries",
+          detail:
+            "Downstream failures (Bedrock throttling, partner API errors) trip a circuit breaker with a graceful fallback instead of retrying into an outage — cut customer-impacting failures by 30%.",
+        },
+      ],
+      stack: ["AWS Lambda", "Step Functions", "DynamoDB", "SQS", "Amazon Bedrock", "CloudWatch"],
+      metrics: [
+        { label: "P99 latency", value: "<200ms" },
+        { label: "Manual content effort", value: "-68%" },
+        { label: "Customer-impacting failures", value: "-30%" },
+      ],
+      diagram: "aiWorkflow",
+    },
+    {
+      id: "hummingbird",
+      name: "Hummingbird",
+      company: "Amazon Robotics",
+      tagline:
+        "Event-driven integration platform moving real-time data between Amazon Robotics systems and external partners.",
+      problem:
+        "Amazon Robotics systems (Oracle EBS, Kinaxis, PLM, SAP, Proplanner) each spoke a different integration language, and point-to-point connections didn't scale past a handful of partners. New integrations needed to onboard in days, not months, while the platform absorbed 100K+ requests/sec across 300+ API routes per tenant.",
+      decisions: [
+        {
+          title: "EventBridge as the integration bus",
+          detail:
+            "Partners publish domain events instead of calling each other directly — decoupling producers from consumers so a new downstream system subscribes without touching upstream code.",
+        },
+        {
+          title: "Step Functions per integration workflow",
+          detail:
+            "Each partner integration is its own orchestrated workflow (validate → transform → route → confirm), isolating failures so one partner's schema quirk can't take down another's pipeline.",
+        },
+        {
+          title: "SQS buffers for backpressure",
+          detail:
+            "Queues sit between EventBridge and the Lambda consumers so downstream systems with slower processing don't force upstream retries or dropped events during traffic spikes.",
+        },
+        {
+          title: "Self-service onboarding over tickets",
+          detail:
+            "New tenants configure routes and schemas through a self-service flow instead of filing integration requests — the main lever that cut onboarding time significantly.",
+        },
+      ],
+      stack: ["EventBridge", "Step Functions", "AWS Lambda", "SQS", "Oracle EBS", "SAP"],
+      metrics: [
+        { label: "Throughput", value: "100K+ req/sec" },
+        { label: "API routes / tenant", value: "300+" },
+        { label: "Onboarding time", value: "Significantly reduced" },
+      ],
+      diagram: "hummingbird",
+    },
+    {
+      id: "project-horus",
+      name: "Project Horus",
+      company: "Amazon Robotics",
+      tagline:
+        "Automated testing platform that replaced 3,000+ hours of manual business-process testing a year.",
+      problem:
+        "Business-process workflows across Amazon Robotics were validated manually before releases — slow, inconsistent, and a hard ceiling on release velocity. Running test suites against real-world load meant provisioning workers that sat idle most of the time if done statically.",
+      decisions: [
+        {
+          title: "ECS Fargate worker fleet, not fixed EC2 capacity",
+          detail:
+            "Test execution runs on auto-scaling Fargate workers that spin up for a suite and disappear after — no idle fleet to pay for between test runs, which is what drove the 93% infrastructure cost reduction.",
+        },
+        {
+          title: "Step Functions as the test orchestrator",
+          detail:
+            "Suites are modeled as state machines so partial failures (one flaky workflow) don't abort the whole run, and results are aggregated once every branch completes.",
+        },
+        {
+          title: "React dashboard over log-diving",
+          detail:
+            "A centralized front end surfaces pass/fail trends and flaky-test signal, replacing engineers grepping through CloudWatch logs after every run.",
+        },
+      ],
+      stack: ["ECS Fargate", "Step Functions", "AWS Lambda", "React", "CloudWatch"],
+      metrics: [
+        { label: "Manual testing saved", value: "3,000+ hrs/yr" },
+        { label: "Infra cost", value: "-93%" },
+      ],
+      diagram: "horus",
+    },
+  ],
+
     // =======================
     // 🔹 About Me
     // =======================

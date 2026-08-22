@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
+import { BsDiagram3 } from "react-icons/bs";
 import {
   AiFillStar,
   AiOutlineHome,
@@ -80,6 +81,16 @@ function NavBar() {
                   style={{ marginBottom: "2px" }}
                 />{" "}
                 Projects
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/system-design"
+                onClick={() => updateExpanded(false)}
+              >
+                <BsDiagram3 style={{ marginBottom: "2px" }} /> System Design
               </Nav.Link>
             </Nav.Item>
 

@@ -11,7 +11,7 @@ function SystemDesign() {
   const cases = portfolio.systemDesigns || [];
 
   return (
-    <Container fluid className="system-design-section">
+    <Container fluid className="system-design-section" id="system-design">
       <Particle />
       <Container>
         <div className="section-eyebrow">System Design</div>

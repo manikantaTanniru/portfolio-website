@@ -13,7 +13,6 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import portfolio from "../Portfolio";
-import logo from "../Assets/logo.svg";
 
 const SECTIONS = [
   { id: "home", label: "Home", icon: AiOutlineHome },
@@ -73,13 +72,6 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand
-          href="#home"
-          className="d-flex align-items-center"
-          onClick={(event) => scrollToSection(event, "home")}
-        >
-          <img src={logo} className="mt-logo" alt="MT logo" />
-        </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {

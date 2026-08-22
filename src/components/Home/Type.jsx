@@ -5,6 +5,7 @@ import portfolio from "../../Portfolio";
 function Type() {
   const highlights = [
     "AI Software Engineer",
+    "Backend Engineer",
     "Full-Stack Engineer",
     "System Design",
     "Eat.",

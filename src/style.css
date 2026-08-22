@@ -83,55 +83,44 @@ button:focus {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.55;
-  mix-blend-mode: screen;
+  filter: blur(70px);
+  opacity: 0.4;
   will-change: transform;
 }
 
 .blob-1 {
-  width: 46vw;
-  height: 46vw;
-  top: -12%;
-  left: -10%;
-  background: radial-gradient(circle, var(--c1), transparent 70%);
-  animation: blob-float-1 22s ease-in-out infinite;
+  width: 38vw;
+  height: 38vw;
+  top: -14%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(124, 108, 246, 1) 0%, rgba(124, 108, 246, 0) 72%);
+  animation: blob-float-1 26s ease-in-out infinite;
 }
 
 .blob-2 {
-  width: 38vw;
-  height: 38vw;
-  top: 10%;
-  right: -12%;
-  background: radial-gradient(circle, var(--c2), transparent 70%);
-  animation: blob-float-2 26s ease-in-out infinite;
+  width: 34vw;
+  height: 34vw;
+  top: -6%;
+  right: -14%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 1) 0%, rgba(34, 211, 238, 0) 72%);
+  animation: blob-float-2 30s ease-in-out infinite;
 }
 
 .blob-3 {
   width: 34vw;
   height: 34vw;
-  bottom: -10%;
-  left: 8%;
-  background: radial-gradient(circle, var(--c3), transparent 70%);
-  animation: blob-float-3 20s ease-in-out infinite;
+  bottom: -16%;
+  right: 6%;
+  background: radial-gradient(circle, rgba(244, 114, 182, 1) 0%, rgba(244, 114, 182, 0) 72%);
+  animation: blob-float-3 24s ease-in-out infinite;
 }
 
 .blob-4 {
-  width: 28vw;
-  height: 28vw;
-  bottom: 5%;
-  right: 10%;
-  background: radial-gradient(circle, var(--c4), transparent 70%);
-  animation: blob-float-1 30s ease-in-out infinite reverse;
+  display: none;
 }
 
 .blob-5 {
-  width: 24vw;
-  height: 24vw;
-  top: 42%;
-  left: 42%;
-  background: radial-gradient(circle, var(--c5), transparent 70%);
-  animation: blob-float-2 24s ease-in-out infinite reverse;
+  display: none;
 }
 
 @keyframes blob-float-1 {
@@ -495,18 +484,6 @@ button:focus {
 .Typewriter__cursor {
   font-size: 2.4em !important;
   color: var(--c3) !important;
-}
-
-.myAvtar {
-  justify-content: center !important;
-  padding-top: 9em !important;
-}
-
-@media (max-width: 767px) {
-  .myAvtar {
-    padding-top: 2em !important;
-    padding-bottom: 2em !important;
-  }
 }
 
 .home-about-section {

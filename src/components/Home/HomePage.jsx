@@ -9,8 +9,6 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import Tilt from "react-parallax-tilt";
-import myImg from "../../Assets/avatar.svg";
 import portfolio from "../../Portfolio";
 
 function HomePage() {
@@ -21,7 +19,7 @@ function HomePage() {
     instagram: <AiFillInstagram />,
     linkedin: <FaLinkedinIn />,
   };
-  const coreStacksList = ["React", "Angular", "Node.js", "Python", "JavaScript", "TypeScript"];
+  const coreStacksList = ["Java", "Spring Boot", "React", "Node.js", "Python", "Kafka", "AWS"];
 
   return (
     <section>
@@ -64,7 +62,7 @@ function HomePage() {
       <Container fluid className="home-about-section" id="about">
         <Container>
           <Row>
-            <Col md={8} className="home-about-description">
+            <Col md={12} className="home-about-description">
               <h1 style={{ fontSize: "2.6em" }}>
                 LET ME <span className="purple"> INTRODUCE </span> MYSELF
               </h1>
@@ -80,11 +78,6 @@ function HomePage() {
                   </>
                 )}
               </p>
-            </Col>
-            <Col md={4} className="myAvtar">
-              <Tilt>
-                <img src={myImg} className="img-fluid" alt="avatar" />
-              </Tilt>
             </Col>
           </Row>
         </Container>

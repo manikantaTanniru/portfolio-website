@@ -19,7 +19,16 @@ const portfolio = {
     // 🔹 Skills
     // =======================
     skills: {
-      languages: ["Java", "Python", "Scala", "TypeScript", "JavaScript", "C#/C", "SQL"],
+      languages: ["Java 8/11/17", "Python", "Scala", "TypeScript", "JavaScript", "C#/C", "SQL"],
+      coreJava: [
+        "OOP",
+        "Collections",
+        "Multithreading",
+        "Concurrency",
+        "Streams API",
+        "Exception Handling",
+        "Design Patterns",
+      ],
       frontend: [
         "React",
         "Next.js",
@@ -31,13 +40,35 @@ const portfolio = {
         "CSS3",
         "SCSS/LESS",
       ],
-      backend: ["Node.js", "Express.js", "Flask", "FastAPI", "Spring Boot"],
+      backend: [
+        "Node.js",
+        "Express.js",
+        "Flask",
+        "FastAPI",
+        "Spring Boot",
+        "Spring MVC",
+        "Spring Data JPA",
+        "Hibernate",
+        "Microservices",
+      ],
+      messaging: [
+        "Apache Kafka",
+        "ActiveMQ",
+        "AWS SQS",
+        "EventBridge",
+        "Event-Driven Architecture",
+        "Asynchronous Processing",
+        "DLQ",
+        "Idempotency",
+      ],
+      security: ["Spring Security", "OAuth2", "JWT Authentication", "Role-Based Access Control"],
       databases: [
         "PostgreSQL",
         "MongoDB",
         "MySQL",
         "Amazon RDS",
         "DynamoDB",
+        "Cosmos DB",
         "MS SQL Server",
         "Oracle",
         "SSMS",
@@ -49,6 +80,7 @@ const portfolio = {
         "Terraform",
         "Docker",
         "Kubernetes",
+        "Helm",
         "CI/CD",
       ],
       dataStreaming: [
@@ -60,6 +92,7 @@ const portfolio = {
         "Databricks",
         "Performance Tuning",
       ],
+      monitoring: ["Prometheus", "Grafana", "CloudWatch", "Structured Logging", "Dashboards & Alerting"],
       aiMl: [
         "Amazon Bedrock (Claude, Titan)",
         "Agent-based Workflows",
@@ -83,6 +116,7 @@ const portfolio = {
         "Visual Studio",
         "TestNG",
         "JUnit",
+        "Mockito",
         "JIRA",
         "Postman",
         "BrowserStack",
@@ -90,7 +124,7 @@ const portfolio = {
         "Cursor",
         "Windsurf",
       ],
-      others: ["REST APIs", "GraphQL", "Redis", "Microservices"],
+      others: ["REST APIs", "GraphQL", "Redis"],
     },
   
     // =======================
@@ -126,12 +160,14 @@ const portfolio = {
         details: [
           "Implemented agent-orchestrated, multi-step AI workflows (planning, generation, evaluation, approval) with throttling, retries, and failure isolation to safely handle hundreds of concurrent AI requests.",
           "Architected low-latency, highly available serverless and microservices systems using AWS Lambda, DynamoDB, SQS, and Step Functions, maintaining P99 latency under 200ms during peak traffic.",
-          "Built the front-end for a user-facing access portal in React/TypeScript, consolidating team, access, and status views into a single interface.",
+          "Designed and developed Java 17/Spring Boot microservices and REST APIs for scalable backend services supporting AI workflow orchestration.",
+          "Built event-driven services using Kafka and ActiveMQ, implementing retries, dead-letter queues, idempotency, and asynchronous processing for reliable message delivery.",
+          "Containerized services using Docker and deployed them on Kubernetes using Helm charts, improving deployment consistency across environments.",
           "Built and operationalized production AI/LLM platforms using Amazon Bedrock to automate personalized content generation, reducing manual content creation effort by 68%.",
-          "Designed secure, versioned data storage using DynamoDB to persist millions of AI-generated artifacts, approvals, and audit records with IAM-based access controls.",
+          "Implemented secure service communication using Spring Security, OAuth2, and JWT-based authentication and authorization.",
           "Strengthened system resilience with timeouts, retries, circuit breakers, and graceful fallbacks, reducing customer-impacting failures by 30%.",
-          "Built high-throughput REST APIs using Node.js and TypeScript, supporting thousands of requests per minute with robust validation and idempotency.",
-          "Established end-to-end observability using CloudWatch, structured logging, dashboards, and alerts, reducing mean time to detect (MTTD) by 40%.",
+          "Wrote automated unit tests with JUnit and Mockito and participated in integration testing to improve code quality and release stability.",
+          "Established end-to-end observability using CloudWatch and Prometheus with structured logging, dashboards, and alerts, reducing mean time to detect (MTTD) by 40%.",
         ],
       },
       {
@@ -139,12 +175,14 @@ const portfolio = {
         company: "Amazon, Sunnyvale, CA",
         duration: "Feb 2025 – May 2026",
         details: [
+          "Developed Java Spring Boot microservices and backend services supporting event-driven integrations across Amazon Robotics platforms.",
           "Worked on Hummingbird, an event-driven integration platform enabling real-time data exchange across Amazon Robotics systems and external partners.",
           "Designed and implemented workflow-based integrations across systems like Oracle EBS, Kinaxis, PLM, SAP, and Proplanner; built AWS-based orchestration pipelines using Step Functions, EventBridge, Lambda, and SQS.",
           "Built large-scale dataset transformation pipelines using PySpark and Spark SQL on Databricks, processing millions of records for downstream analytics and content workflows.",
           "Contributed to self-service workflow onboarding, reducing onboarding time significantly; supported high-scale systems handling 100K+ requests/sec and 300+ API routes per tenant.",
           "Led the end-to-end architecture and implementation of Project Horus, an automated testing platform that reduced manual testing effort by over 3000 hours annually.",
           "Designed and helped implement a new user-facing portal on top of the Mockingbird access automation service, giving users a single place to view teams, app access, and status instead of scattered wiki pages.",
+          "Worked with Docker, Kubernetes, and Terraform across CI/CD pipelines to support cloud-native application delivery.",
         ],
       },
       {
@@ -359,7 +397,7 @@ projects: [
     // 🔹 About Me
     // =======================
     about:
-      "Hi, I’m Manikanta Tanniru, a Software Engineer with 5+ years building high-scale backend and AI-powered platforms. I specialize in production LLM integration, workflow automation, and cloud-native system design. Currently an AI Software Engineer at VeroTX Networks, I build agent-orchestrated AI workflows and low-latency serverless systems on AWS. Previously at Amazon Robotics, I worked on Hummingbird, Horus, and Mockingbird — building integrations across enterprise systems and improving automation at scale. I enjoy translating complex business problems into measurable efficiency, cost, and productivity gains.",
+      "Hi, I’m Manikanta Tanniru, a Software Engineer with 6+ years building high-scale backend, microservices, and AI-powered platforms. I specialize in Java/Spring Boot microservices, event-driven systems with Kafka, production LLM integration, and cloud-native system design. Currently an AI Software Engineer at VeroTX Networks, I build agent-orchestrated AI workflows and low-latency serverless systems on AWS. Previously at Amazon Robotics, I worked on Hummingbird, Horus, and Mockingbird — building integrations across enterprise systems and improving automation at scale. I enjoy translating complex business problems into measurable efficiency, cost, and productivity gains.",
     // =======================
     // 🔹 Contact Info
     // =======================

@@ -5,11 +5,15 @@ import portfolio from "../../Portfolio";
 function Techstack() {
   const skillCategories = [
     "languages",
+    "coreJava",
     "frontend",
     "backend",
+    "messaging",
+    "security",
     "databases",
     "cloudDevops",
     "dataStreaming",
+    "monitoring",
     "aiMl",
     "others",
   ];

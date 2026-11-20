@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiMoon, FiSun, FiMenu, FiX } from "react-icons/fi";
+import resumePdf from "../Assets/Manikanta_Resume.pdf";
 
 export const SECTIONS = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
-  { id: "system-design", label: "Systems" },
+  { id: "systems", label: "Systems" },
   { id: "projects", label: "Projects" },
-  { id: "resume", label: "Resume" },
   { id: "contact", label: "Contact" },
 ];
 
-function readStoredTheme() {
-  try {
-    return localStorage.getItem("theme");
-  } catch {
-    return null;
-  }
-}
-
-function currentTheme() {
+function initialTheme() {
   const explicit = document.documentElement.getAttribute("data-theme");
   if (explicit) return explicit;
   return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -27,14 +19,35 @@ function currentTheme() {
 }
 
 function Nav() {
-  const [theme, setTheme] = useState(() => readStoredTheme() || currentTheme());
+  const [theme, setTheme] = useState(initialTheme);
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [stuck, setStuck] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const barRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
+    let lastY = window.scrollY;
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (barRef.current) {
+        barRef.current.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+      }
+      setStuck(y > 40);
+      setHidden(y > 300 && y > lastY + 2);
+      if (y < lastY - 2) setHidden(false);
+      lastY = y;
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -42,11 +55,7 @@ function Nav() {
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return undefined;
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-45% 0px -50% 0px" }
     );
     SECTIONS.forEach(({ id }) => {
@@ -55,6 +64,13 @@ function Nav() {
     });
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
@@ -67,45 +83,45 @@ function Nav() {
     setTheme(next);
   };
 
+  const close = () => setOpen(false);
+
   return (
-    <header className={`nav${scrolled ? " scrolled" : ""}`}>
-      <div className="container nav-inner">
-        <a href="#top" className="nav-brand" onClick={() => setOpen(false)}>
-          <span className="prompt">manikanta</span>
-          <span style={{ color: "var(--muted)" }}>@portfolio:~$</span>
-          <span className="cursor" aria-hidden="true" />
+    <>
+      <div className="progress" ref={barRef} aria-hidden="true" />
+      <header className={`nav${stuck ? " stuck" : ""}${hidden ? " hidden" : ""}${open ? " open" : ""}`}>
+        <a href="#top" className="nav-mark" onClick={close}>
+          manikanta<span>.</span>
         </a>
-
-        <nav aria-label="Primary">
-          <ul className={`nav-links${open ? " open" : ""}`}>
-            {SECTIONS.map(({ id, label }, i) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className={active === id ? "active" : ""}
-                  onClick={() => setOpen(false)}
-                >
-                  <span className="idx">{`0${i + 1}`}</span>
-                  {label}
-                </a>
-              </li>
+        <div className="nav-right">
+          <nav className="nav-links" aria-label="Primary">
+            {SECTIONS.map(({ id, label }) => (
+              <a key={id} href={`#${id}`} className={active === id ? "active" : ""} onClick={close}>
+                {label}
+              </a>
             ))}
-          </ul>
-        </nav>
-
-        <div className="nav-actions">
+            <a href={resumePdf} target="_blank" rel="noreferrer" onClick={close}>
+              Resume ↗
+            </a>
+          </nav>
           <button
             type="button"
-            className="icon-btn"
+            role="switch"
+            aria-checked={theme === "dark"}
+            aria-label="Dark mode"
+            className="theme-switch"
             onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
-            {theme === "dark" ? <FiSun /> : <FiMoon />}
+            <span className="knob" aria-hidden="true" />
+            <span className="ico sun" aria-hidden="true">
+              <FiSun />
+            </span>
+            <span className="ico moon" aria-hidden="true">
+              <FiMoon />
+            </span>
           </button>
           <button
             type="button"
-            className="icon-btn nav-menu-btn"
+            className="menu-btn"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -113,8 +129,8 @@ function Nav() {
             {open ? <FiX /> : <FiMenu />}
           </button>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 

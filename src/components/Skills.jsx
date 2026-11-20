@@ -1,45 +1,42 @@
 import React from "react";
 import portfolio from "../Portfolio";
-import Reveal from "./Reveal";
+import Reveal, { Heading } from "./Reveal";
 
-const GROUPS = [
-  ["languages", "languages"],
-  ["backend", "backend"],
-  ["messaging", "messaging & events"],
-  ["databases", "databases"],
-  ["cloudDevops", "cloud & devops"],
-  ["dataStreaming", "data & streaming"],
-  ["monitoring", "observability"],
-  ["aiMl", "ai / ml"],
-  ["frontend", "frontend"],
-  ["tools", "tools & testing"],
+const SHELVES = [
+  ["languages", "Languages"],
+  ["backend", "Backend"],
+  ["messaging", "Messaging & events"],
+  ["databases", "Databases"],
+  ["cloudDevops", "Cloud & DevOps"],
+  ["dataStreaming", "Data & streaming"],
+  ["monitoring", "Observability"],
+  ["aiMl", "AI / ML"],
+  ["tools", "Tools & testing"],
 ];
 
 function Skills() {
   const skills = portfolio.skills || {};
-  const groups = GROUPS.filter(([key]) => (skills[key] || []).length);
+  const shelves = SHELVES.filter(([key]) => (skills[key] || []).length);
 
   return (
-    <section className="section" id="skills" style={{ paddingTop: 24 }}>
-      <div className="container">
-        <Reveal className="section-head">
-          <div className="eyebrow">stack</div>
-          <h2 className="section-title">Tools of the trade.</h2>
-        </Reveal>
-        <div className="skills-grid">
-          {groups.map(([key, label], i) => (
-            <Reveal className="card skill-group" key={key} delay={(i % 3) * 60}>
+    <section className="section" id="skills" style={{ paddingTop: 0 }}>
+      <div className="wrap">
+        <span className="label">Stack</span>
+        <Heading lines={["What I work", "with."]} />
+        <div className="shelves">
+          {shelves.map(([key, label], i) => (
+            <Reveal className="shelf" key={key} delay={(i % 3) * 70}>
               <h3>
-                <span>~/</span>
                 {label}
+                <span>{String(skills[key].length).padStart(2, "0")}</span>
               </h3>
-              <div className="skill-tags">
+              <ul>
                 {skills[key].map((s) => (
-                  <span className="chip" key={s}>
+                  <li className="chip" key={s}>
                     {s}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </Reveal>
           ))}
         </div>

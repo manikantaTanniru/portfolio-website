@@ -1,6 +1,6 @@
 import React from "react";
 import portfolio from "../Portfolio";
-import Reveal from "./Reveal";
+import Reveal, { Heading } from "./Reveal";
 
 const FOCUS = [
   "Distributed systems",
@@ -12,20 +12,37 @@ const FOCUS = [
 ];
 
 function About() {
-  const education = portfolio.education || [];
+  const current = portfolio.experience?.[0];
+  const masters = (portfolio.education || []).find((e) => /master/i.test(e.degree));
+  const facts = [
+    ["Based in", portfolio.location?.replace(", USA", "")],
+    ["Now", current && `${current.title}, ${current.company.split(",")[0]}`],
+    ["Before", "Amazon Robotics, VeroTX Networks, DarioHealth"],
+    ["Studied", masters && `M.S. Software Engineering, ${masters.institution.split(",")[0]}`],
+    ["Doing", "DBA in Business Intelligence & Data Analytics"],
+  ].filter(([, v]) => v);
 
   return (
     <section className="section" id="about">
-      <div className="container">
-        <Reveal className="section-head">
-          <div className="eyebrow">about</div>
-          <h2 className="section-title">Backend engineer who cares how systems fail.</h2>
-        </Reveal>
-
+      <div className="wrap">
+        <span className="label">About</span>
+        <Heading lines={["I care how", "systems fail."]} />
         <div className="about-grid">
-          <Reveal>
-            <p className="about-text">{portfolio.about}</p>
-            <div className="focus-list">
+          <Reveal as="dl" className="facts">
+            {facts.map(([k, v]) => (
+              <div className="fact" key={k}>
+                <dt>{k}</dt>
+                <dd>{v}</dd>
+              </div>
+            ))}
+          </Reveal>
+          <Reveal className="about-body" delay={120}>
+            <p className="lead">
+              Five-plus years building the backend pieces most people never see: event
+              pipelines, integration platforms and the services that keep metrics honest.
+            </p>
+            <p className="muted">{portfolio.about}</p>
+            <div className="chips">
               {FOCUS.map((f) => (
                 <span className="chip" key={f}>
                   {f}
@@ -33,25 +50,6 @@ function About() {
               ))}
             </div>
           </Reveal>
-
-          {education.length > 0 && (
-            <Reveal className="card edu-card" delay={100}>
-              <h3>$ cat education.log</h3>
-              {education.map((e) => (
-                <div className="edu-item" key={e.degree}>
-                  <div className="edu-degree">{e.degree}</div>
-                  <div className="edu-meta">
-                    {e.institution}
-                    <br />
-                    <span className="mono">
-                      {e.duration}
-                      {e.inProgress ? " · in progress" : ""}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </Reveal>
-          )}
         </div>
       </div>
     </section>

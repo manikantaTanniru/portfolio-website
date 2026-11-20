@@ -1,15 +1,9 @@
 import React, { useMemo, useState } from "react";
-import { FiExternalLink, FiCpu, FiMic, FiDatabase, FiCode } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
+import { FiArrowUpRight } from "react-icons/fi";
 import portfolio from "../Portfolio";
-import Reveal from "./Reveal";
+import { Heading } from "./Reveal";
 
-function iconFor(tags = []) {
-  if (tags.includes("Voice AI")) return <FiMic />;
-  if (tags.includes("RAG")) return <FiDatabase />;
-  if (tags.includes("GenAI") || tags.includes("Agents")) return <FiCpu />;
-  return <FiCode />;
-}
+const HOVERS = ["var(--orange)", "var(--lime)", "var(--sun)", "var(--blue)"];
 
 function Projects() {
   const projects = portfolio.projects || [];
@@ -25,13 +19,10 @@ function Projects() {
     activeTag === "All" ? projects : projects.filter((p) => (p.tags || []).includes(activeTag));
 
   return (
-    <section className="section" id="projects">
-      <div className="container">
-        <Reveal className="section-head">
-          <div className="eyebrow">projects</div>
-          <h2 className="section-title">Things I&apos;ve built on the side.</h2>
-          <p className="section-sub">GenAI, RAG, voice agents and full-stack experiments.</p>
-        </Reveal>
+    <section className="section" id="projects" style={{ paddingTop: 0 }}>
+      <div className="wrap">
+        <span className="label">Side projects</span>
+        <Heading lines={["Things I've", "built."]} />
 
         {tags.length > 1 && (
           <div className="filter-bar" role="group" aria-label="Filter projects">
@@ -39,7 +30,7 @@ function Projects() {
               <button
                 key={tag}
                 type="button"
-                className={`filter-chip${tag === activeTag ? " active" : ""}`}
+                className="filter-chip"
                 aria-pressed={tag === activeTag}
                 onClick={() => setActiveTag(tag)}
               >
@@ -49,55 +40,57 @@ function Projects() {
           </div>
         )}
 
-        <div className="projects-grid">
-          {filtered.map((p) => (
-            <article className="card project" key={p.name}>
-              <div className="project-top">
-                <span className="project-icon" aria-hidden="true">
-                  {iconFor(p.tags)}
-                </span>
+        <div className="projects">
+          {filtered.map((p, i) => {
+            const hover = HOVERS[i % HOVERS.length];
+            return (
+              <article
+                className="project"
+                key={p.name}
+                style={{
+                  "--hover": hover,
+                  ...(hover === "var(--blue)" ? { "--hover-ink": "var(--bone)" } : {}),
+                }}
+              >
+                <div className="project-top">
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  {p.featured ? (
+                    <span className="project-featured">FEATURED</span>
+                  ) : (
+                    <span>{(p.tags || []).join(" · ")}</span>
+                  )}
+                </div>
+                <h3 className="project-name">{p.name}</h3>
+                <p className="project-desc">
+                  {p.description ||
+                    `${(p.tags || []).join(" / ")} project built with ${(p.techStack || [])
+                      .slice(0, 3)
+                      .join(", ")}.`}
+                </p>
+                {p.techStack?.length > 0 && (
+                  <div className="project-stack">
+                    {p.techStack.map((t) => (
+                      <span className="chip" key={t}>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <div className="project-links">
                   {p.github && (
-                    <a
-                      className="icon-btn"
-                      href={p.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${p.name} on GitHub`}
-                    >
-                      <FaGithub />
+                    <a href={p.github} target="_blank" rel="noreferrer" aria-label={`${p.name} source on GitHub`}>
+                      GitHub <FiArrowUpRight />
                     </a>
                   )}
                   {p.demo && (
-                    <a
-                      className="icon-btn"
-                      href={p.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${p.name} live demo`}
-                    >
-                      <FiExternalLink />
+                    <a href={p.demo} target="_blank" rel="noreferrer" aria-label={`${p.name} live demo`}>
+                      Live demo <FiArrowUpRight />
                     </a>
                   )}
                 </div>
-              </div>
-              <h3 className="project-name">
-                {p.name}
-                {p.featured && <span className="badge-featured">featured</span>}
-              </h3>
-              {p.tags?.length > 0 && <div className="project-tags">{p.tags.join(" · ")}</div>}
-              {p.description && <p className="project-desc">{p.description}</p>}
-              {p.techStack?.length > 0 && (
-                <div className="project-stack">
-                  {p.techStack.map((t) => (
-                    <span className="chip" key={t}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

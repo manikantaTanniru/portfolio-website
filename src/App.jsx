@@ -1,13 +1,13 @@
 import React from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero/Hero";
-import Impact from "./components/Impact";
 import About from "./components/About";
 import Experience from "./components/Experience";
-import Skills from "./components/Skills";
+import Simulator from "./components/Simulator";
+import Impact from "./components/Impact";
 import SystemDesign from "./components/SystemDesign/SystemDesign";
 import Projects from "./components/Projects";
-import Resume from "./components/Resume";
+import Skills from "./components/Skills";
 import Contact, { Footer } from "./components/Contact";
 
 function App() {
@@ -16,13 +16,13 @@ function App() {
       <Nav />
       <main>
         <Hero />
-        <Impact />
         <About />
         <Experience />
-        <Skills />
+        <Simulator />
         <SystemDesign />
+        <Impact />
         <Projects />
-        <Resume />
+        <Skills />
         <Contact />
       </main>
       <Footer />

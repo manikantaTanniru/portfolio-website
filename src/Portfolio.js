@@ -16,16 +16,6 @@ const portfolio = {
     },
   
     // =======================
-    // 🔹 Impact highlights (hero stats)
-    // =======================
-    impact: [
-      { value: 3000, unit: "+ hrs", label: "of manual testing eliminated each year by Project Horus", source: "Amazon Robotics" },
-      { prefix: "<", value: 200, unit: "ms", label: "P99 latency held at peak on serverless systems", source: "VeroTX Networks" },
-      { value: 30, unit: "%", label: "fewer customer-impacting failures via retries & circuit breakers", source: "VeroTX Networks" },
-      { value: 40, unit: "%", label: "less manual campaign setup through workflow automation", source: "DarioHealth" },
-    ],
-
-    // =======================
     // 🔹 Skills
     // =======================
     skills: {
@@ -168,12 +158,12 @@ const portfolio = {
         company: "Walmart Global Tech, Sunnyvale, CA",
         duration: "Aug 2026 – Present",
         details: [
-          "Developing and maintaining Java 17 and Spring Boot microservices supporting Walmart's Last Mile Delivery platform and driver performance metrics.",
+          "Developing and maintaining **Java 17 and Spring Boot microservices** supporting Walmart's Last Mile Delivery platform and driver performance metrics.",
           "Working on backend microservices that process driver trip events and calculate performance metrics for delivery operations.",
-          "Contributing to the migration of the Driver Metrics platform from myMetrics 1.0 to myMetrics 2.0, analyzing existing business logic, event contracts, and calculation workflows.",
-          "Analyzing the end-to-end Driver Standards Service (DSS) event-processing pipeline, including event consumption, prevalidation, conversion, mapping, validation, extraction, enrichment, and metrics aggregation.",
-          "Investigating Cancellation Rate (CR) and On-Time Arrival (OTA) calculations across driver trip scenarios, including cancellations, reschedules, completed trips, and trip-status changes.",
-          "Debugging Kafka-based event-processing workflows to identify discrepancies between incoming trip events, calculated driver metrics, and persisted records in Azure Cosmos DB.",
+          "Contributing to the migration of the Driver Metrics platform from **myMetrics 1.0 to myMetrics 2.0**, analyzing existing business logic, event contracts, and calculation workflows.",
+          "Analyzing the end-to-end **Driver Standards Service (DSS)** event-processing pipeline, including event consumption, prevalidation, conversion, mapping, validation, extraction, enrichment, and metrics aggregation.",
+          "Investigating **Cancellation Rate (CR) and On-Time Arrival (OTA)** calculations across driver trip scenarios, including cancellations, reschedules, completed trips, and trip-status changes.",
+          "Debugging **Kafka-based event-processing workflows** to identify discrepancies between incoming trip events, calculated driver metrics, and persisted records in **Azure Cosmos DB**.",
           "Troubleshooting missing CR/OTA metrics caused by cancellation reason-code mismatches, event contract changes, trip-status inconsistencies, and validation logic.",
           "Collaborating with cross-functional engineering and testing teams to investigate failing scenarios, validate event payloads, and align backend processing logic with updated business requirements.",
           "Supporting backend debugging and API validation using Java, Spring Boot, REST APIs, and event payload analysis to improve the reliability of driver performance calculations.",
@@ -185,13 +175,13 @@ const portfolio = {
         duration: "May 2026 – July 2026",
         details: [
           "Designed, built, tested, deployed, and operated large-scale backend services and distributed applications, owning functionality throughout the complete software development lifecycle.",
-          "Architected low-latency, highly available serverless and microservices-based systems using AWS Lambda, DynamoDB, SQS, and Step Functions, maintaining P99 latency under 200 ms during peak workloads.",
+          "Architected low-latency, highly available serverless and microservices-based systems using AWS Lambda, DynamoDB, SQS, and Step Functions, maintaining **P99 latency under 200 ms** during peak workloads.",
           "Designed scalable service architectures using established software design patterns for fault tolerance, asynchronous processing, extensibility, and failure isolation.",
-          "Designed and developed high-throughput REST APIs using Java, Node.js, and TypeScript, incorporating validation, idempotency, error handling, and maintainable API contracts.",
-          "Applied distributed-system reliability patterns including timeouts, retries, circuit breakers, graceful fallbacks, and failure isolation, reducing customer-impacting failures by 30%.",
-          "Designed secure, versioned persistence solutions using DynamoDB, supporting millions of artifacts, workflow approvals, and audit records with IAM-based access controls.",
+          "Designed and developed **high-throughput REST APIs** using Java, Node.js, and TypeScript, incorporating validation, idempotency, error handling, and maintainable API contracts.",
+          "Applied distributed-system reliability patterns including timeouts, retries, circuit breakers, graceful fallbacks, and failure isolation, **reducing customer-impacting failures by 30%**.",
+          "Designed secure, versioned persistence solutions using DynamoDB, supporting **millions of artifacts**, workflow approvals, and audit records with IAM-based access controls.",
           "Performed production troubleshooting and root-cause analysis, identifying systemic issues and implementing long-term corrective actions.",
-          "Implemented agent-orchestrated AI workflows with throttling, retries, evaluation, approval, and failure isolation while safely supporting hundreds of concurrent requests.",
+          "Implemented agent-orchestrated AI workflows with throttling, retries, evaluation, approval, and failure isolation while safely supporting **hundreds of concurrent requests**.",
         ],
       },
       {
@@ -200,13 +190,13 @@ const portfolio = {
         duration: "Feb 2025 – May 2026",
         details: [
           "Designed, developed, tested, deployed, and operated distributed software systems for Amazon Robotics, from requirements and architecture through release and production support.",
-          "Worked on Hummingbird, an event-driven integration platform enabling reliable data exchange between Amazon Robotics applications and enterprise systems.",
-          "Designed and implemented workflow-based integrations between Oracle EBS, Kinaxis, PLM, SAP, Proplanner, and downstream Amazon systems.",
+          "Worked on **Hummingbird**, an event-driven integration platform enabling reliable data exchange between Amazon Robotics applications and enterprise systems.",
+          "Designed and implemented workflow-based integrations between **Oracle EBS, Kinaxis, PLM, SAP, Proplanner**, and downstream Amazon systems.",
           "Built scalable AWS orchestration pipelines using Step Functions, EventBridge, Lambda, SQS, DynamoDB, S3, and CloudWatch, supporting resilient asynchronous processing.",
           "Applied distributed-system principles including asynchronous processing, loose coupling, retries, idempotency, failure handling, and service isolation.",
           "Optimized backend services, database queries, and integration workflows to improve performance, response latency, throughput, and reliability.",
-          "Worked on the end-to-end architecture and implementation of Project Horus, an automated testing platform that reduced manual business-process testing by more than 3,000 hours annually.",
-          "Designed and helped implement a user-facing portal for the Mockingbird access automation platform, giving users a centralized view of teams, application access, and authorization status.",
+          "Worked on the end-to-end architecture and implementation of **Project Horus**, an automated testing platform that reduced manual business-process testing by **more than 3,000 hours annually**.",
+          "Designed and helped implement a user-facing portal for the **Mockingbird access automation platform**, giving users a centralized view of teams, application access, and authorization status.",
           "Optimized distributed backend flows between Self-Service Lambda, Connector Lambdas, and DeprovisionService, improving reliability of automated access-management workflows.",
         ],
       },
@@ -215,11 +205,11 @@ const portfolio = {
         company: "DarioHealth, USA",
         duration: "Dec 2023 – Feb 2025",
         details: [
-          "Designed and developed production backend and full-stack applications using Java, Node.js, REST APIs, React, and AWS for complex healthcare and enterprise workflows.",
+          "Designed and developed production backend and full-stack applications using **Java, Node.js, REST APIs, React, and AWS** for complex healthcare and enterprise workflows.",
           "Designed scalable backend services using microservices and RESTful architecture, applying reusable design patterns and clean service boundaries.",
-          "Built backend services for automated campaign and content workflows, reducing manual campaign setup effort by approximately 40%.",
+          "Built backend services for automated campaign and content workflows, reducing manual campaign setup effort by **approximately 40%**.",
           "Built event-driven and asynchronous processing workflows using AWS services to improve scalability and decouple application components.",
-          "Developed AWS Lambda and Step Functions automation for multi-stage generation, validation, and approval workflows.",
+          "Developed **AWS Lambda and Step Functions automation** for multi-stage generation, validation, and approval workflows.",
         ],
       },
       {
@@ -227,9 +217,9 @@ const portfolio = {
         company: "Veritas Software, India",
         duration: "June 2019 – Jan 2021",
         details: [
-          "Designed and developed backend applications and REST APIs using Java, Python, Django, and Flask, including authentication and database integrations.",
-          "Applied Java 8 Streams, Lambda expressions, multithreading, and Concurrency APIs to improve application performance, maintainability, and reliability.",
-          "Designed data persistence and versioning solutions using DynamoDB and relational databases, supporting content iterations, approvals, and audit history.",
+          "Designed and developed backend applications and REST APIs using **Java, Python, Django, and Flask**, including authentication and database integrations.",
+          "Applied **Java 8 Streams, Lambda expressions, multithreading**, and Concurrency APIs to improve application performance, maintainability, and reliability.",
+          "Designed data persistence and versioning solutions using **DynamoDB and relational databases**, supporting content iterations, approvals, and audit history.",
           "Investigated application defects and production issues, performed root-cause analysis, and implemented fixes to improve system reliability.",
         ],
       },

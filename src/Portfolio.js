@@ -12,6 +12,7 @@ const portfolio = {
     location: "San Jose, California, USA",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/manikanta-tanniru-380239252/",
+      github: "https://github.com/manikantaTanniru",
     },
   
     // =======================
@@ -243,6 +244,7 @@ projects: [
     ],
     description:
       "Gen-AI voice-based inventory system for small retail (Kirana) stores. Supports multilingual voice input using Whisper and processes commands using LLM workflows. Enables users to add, update, and query inventory through natural conversation.",
+    github: "https://github.com/manikantaTanniru/kirana.ai",
     demo: "",
   },
   {
@@ -258,6 +260,7 @@ projects: [
     ],
     description:
       "AI chatbot that answers questions about my experience and projects using retrieval-based generation. Uses vector embeddings for context and is deployed on GCP with dynamic document ingestion.",
+    github: "https://github.com/manikantaTanniru/Profile_bot",
     demo: "",
   },
   {
@@ -266,24 +269,28 @@ projects: [
     techStack: ["React.js", "Flask", "REST API", "OpenSky API"],
     description:
       "Flight search application that fetches and visualizes real-time flight data using OpenSky APIs, with filtering and user-friendly UI for exploration.",
+    github: "https://github.com/manikantaTanniru/skypath-flight-search",
     demo: "",
   },
   {
     name: "RAG-as-a-Service",
     tags: ["GenAI", "RAG"],
     techStack: ["Python", "Claude 3.5 Sonnet", "Ragie.ai", "Streamlit"],
+    github: "https://github.com/manikantaTanniru/rag-as-a-service",
     demo: "",
   },
   {
     name: "AI Health & Fitness Agent",
     tags: ["GenAI", "Agents"],
     techStack: ["Python", "Agno", "Google Gemini", "Streamlit"],
+    github: "https://github.com/manikantaTanniru/ai_health_fitness_agent",
     demo: "",
   },
   {
     name: "Voice AI Agents",
     tags: ["GenAI", "Voice AI", "RAG"],
     techStack: ["Python", "OpenAI SDK", "Qdrant", "LangChain", "Streamlit"],
+    github: "https://github.com/manikantaTanniru/voice-ai-agents",
     demo: "",
   }
 ],
@@ -412,6 +419,7 @@ projects: [
     // =======================
     email: "tanniru.manikanta96@gmail.com",
     linkedin: "https://www.linkedin.com/in/manikanta-tanniru",
+    github: "https://github.com/manikantaTanniru"
   };
   
   export default portfolio;

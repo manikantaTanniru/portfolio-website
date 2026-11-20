@@ -1,45 +1,31 @@
-import React, { useState, useEffect } from "react";
-import Preloader from "./components/Pre";
-import FloatingBlobs from "./components/FloatingBlobs";
-import Navbar from "./components/Navbar";
-import HomePage from "./components/Home/HomePage";
-import Contact from "./components/Home/Contact";
-import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
+import React from "react";
+import Nav from "./components/Nav";
+import Hero from "./components/Hero/Hero";
+import Impact from "./components/Impact";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
 import SystemDesign from "./components/SystemDesign/SystemDesign";
-import Footer from "./components/Footer";
-import Resume from "./components/Resume/ResumeNew";
-import "./style.css";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Projects from "./components/Projects";
+import Resume from "./components/Resume";
+import Contact, { Footer } from "./components/Contact";
 
 function App() {
-  const [load, upadateLoad] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
-      <Preloader load={load} />
-      <FloatingBlobs />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
-        <main>
-          <HomePage />
-          <About />
-          <Projects />
-          <SystemDesign />
-          <Resume />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <Nav />
+      <main>
+        <Hero />
+        <Impact />
+        <About />
+        <Experience />
+        <Skills />
+        <SystemDesign />
+        <Projects />
+        <Resume />
+        <Contact />
+      </main>
+      <Footer />
     </>
   );
 }

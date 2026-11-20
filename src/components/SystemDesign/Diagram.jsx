@@ -1,15 +1,16 @@
 import React from "react";
 
-const PALETTE = {
-  violet: { fill: "rgba(124, 108, 246, 0.16)", stroke: "#9d8ff9", text: "#e3ddff" },
-  cyan: { fill: "rgba(34, 211, 238, 0.14)", stroke: "#5fe4f5", text: "#d8fbff" },
-  pink: { fill: "rgba(244, 114, 182, 0.14)", stroke: "#f79ac9", text: "#ffe3f2" },
-  amber: { fill: "rgba(251, 191, 36, 0.14)", stroke: "#fdd063", text: "#fff3d6" },
-  emerald: { fill: "rgba(52, 211, 153, 0.14)", stroke: "#6ee7b7", text: "#dcfce9" },
-};
+const HUES = ["violet", "cyan", "pink", "amber", "emerald"];
+
+function hueColor(hue) {
+  return `var(--d-${HUES.includes(hue) ? hue : "violet"})`;
+}
+
+function hueFill(hue) {
+  return `color-mix(in srgb, ${hueColor(hue)} 13%, transparent)`;
+}
 
 function Node({ x, y, w, h, label, sub, hue = "violet", dashed = false }) {
-  const c = PALETTE[hue];
   return (
     <g>
       <rect
@@ -17,9 +18,8 @@ function Node({ x, y, w, h, label, sub, hue = "violet", dashed = false }) {
         y={y}
         width={w}
         height={h}
-        rx={12}
-        fill={c.fill}
-        stroke={c.stroke}
+        rx={10}
+        style={{ fill: hueFill(hue), stroke: hueColor(hue) }}
         strokeWidth={1.4}
         strokeDasharray={dashed ? "5 4" : undefined}
       />
@@ -29,8 +29,7 @@ function Node({ x, y, w, h, label, sub, hue = "violet", dashed = false }) {
         textAnchor="middle"
         fontSize="13"
         fontWeight="600"
-        fill={c.text}
-        fontFamily="Inter, sans-serif"
+        style={{ fill: "var(--d-text)", fontFamily: "var(--font-sans)" }}
       >
         {label}
       </text>
@@ -40,9 +39,8 @@ function Node({ x, y, w, h, label, sub, hue = "violet", dashed = false }) {
           y={y + h / 2 + 14}
           textAnchor="middle"
           fontSize="10.5"
-          fill={c.text}
-          opacity="0.75"
-          fontFamily="Inter, sans-serif"
+          opacity="0.7"
+          style={{ fill: "var(--d-text)", fontFamily: "var(--font-sans)" }}
         >
           {sub}
         </text>
@@ -59,8 +57,7 @@ function GroupLabel({ x, y, text, hue = "violet" }) {
       fontSize="10.5"
       letterSpacing="0.08em"
       fontWeight="700"
-      fill={PALETTE[hue].stroke}
-      fontFamily="JetBrains Mono, monospace"
+      style={{ fill: hueColor(hue), fontFamily: "var(--font-mono)" }}
     >
       {text.toUpperCase()}
     </text>
@@ -68,7 +65,6 @@ function GroupLabel({ x, y, text, hue = "violet" }) {
 }
 
 function Arrow({ x1, y1, x2, y2, hue = "violet", curve, dashed }) {
-  const stroke = PALETTE[hue].stroke;
   const path = curve
     ? `M ${x1} ${y1} C ${x1 + (x2 - x1) / 2} ${y1}, ${x1 + (x2 - x1) / 2} ${y2}, ${x2} ${y2}`
     : `M ${x1} ${y1} L ${x2} ${y2}`;
@@ -76,9 +72,10 @@ function Arrow({ x1, y1, x2, y2, hue = "violet", curve, dashed }) {
     <path
       d={path}
       fill="none"
-      stroke={stroke}
+      className={dashed ? undefined : "flow"}
+      style={{ stroke: hueColor(hue) }}
       strokeWidth={1.6}
-      strokeDasharray={dashed ? "4 4" : undefined}
+      strokeDasharray={dashed ? "4 4" : "6 2"}
       markerEnd="url(#arrowhead)"
       opacity={0.85}
     />
@@ -90,7 +87,7 @@ function DiagramShell({ viewBox, children, height = 380 }) {
     <svg
       viewBox={viewBox}
       height={height}
-      style={{ overflow: "visible", minWidth: 640, width: "100%" }}
+      style={{ overflow: "visible", minWidth: 640, width: "100%", display: "block" }}
     >
       <defs>
         <marker
@@ -101,7 +98,7 @@ function DiagramShell({ viewBox, children, height = 380 }) {
           refY="4"
           orient="auto"
         >
-          <path d="M0,0 L8,4 L0,8 Z" fill="#c9c3f7" />
+          <path d="M0,0 L8,4 L0,8 Z" style={{ fill: "var(--muted)" }} />
         </marker>
       </defs>
       {children}
@@ -206,7 +203,7 @@ export function HorusDiagram() {
       <Arrow x1={390} y1={157} x2={436} y2={157} />
 
       <GroupLabel x={440} y={70} text="Auto-scaling fleet (ECS Fargate)" hue="cyan" />
-      <rect x={436} y={82} width={280} height={150} rx={14} fill="none" stroke="#5fe4f5" strokeDasharray="5 4" opacity="0.6" />
+      <rect x={436} y={82} width={280} height={150} rx={14} fill="none" style={{ stroke: "var(--d-cyan)" }} strokeDasharray="5 4" opacity="0.6" />
       <Node x={456} y={100} w={110} h={44} label="Worker 1" hue="cyan" />
       <Node x={586} y={100} w={110} h={44} label="Worker 2" hue="cyan" />
       <Node x={456} y={160} w={110} h={44} label="Worker N" hue="cyan" dashed />

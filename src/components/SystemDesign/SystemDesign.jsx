@@ -1,106 +1,106 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Tilt from "react-parallax-tilt";
-import Particle from "../Particle";
+import React, { useState } from "react";
 import portfolio from "../../Portfolio";
 import { DIAGRAMS } from "./Diagram";
-
-const HUES = ["hue-violet", "hue-pink", "hue-cyan"];
+import Reveal from "../Reveal";
 
 function SystemDesign() {
   const cases = portfolio.systemDesigns || [];
+  const [activeIdx, setActiveIdx] = useState(0);
+  if (!cases.length) return null;
+
+  const item = cases[activeIdx];
+  const Diagram = DIAGRAMS[item.diagram];
 
   return (
-    <Container fluid className="system-design-section" id="system-design">
-      <Particle />
-      <Container>
-        <div className="section-eyebrow">System Design</div>
-        <h1 className="project-heading">
-          How I <strong className="purple">Design Systems</strong>
-        </h1>
-        <p className="system-design-intro">
-          Case studies from production systems I&apos;ve architected — the
-          problem, the tradeoffs, and how the pieces fit together.
-        </p>
-
-        {cases.length === 0 && (
-          <p style={{ color: "white", textAlign: "center" }}>
-            Case studies coming soon.
+    <section className="section" id="system-design">
+      <div className="container">
+        <Reveal className="section-head">
+          <div className="eyebrow">system design</div>
+          <h2 className="section-title">How I design systems.</h2>
+          <p className="section-sub">
+            Case studies from production systems: the problem, the tradeoffs, and how the
+            pieces fit together.
           </p>
-        )}
+        </Reveal>
 
-        {cases.map((item, index) => {
-          const Diagram = DIAGRAMS[item.diagram];
-          const hue = HUES[index % HUES.length];
-          return (
-            <section className={`sd-case ${hue}`} key={item.id}>
-              <div className="sd-case-header">
-                <span className="sd-case-index">{`0${index + 1}`}</span>
-                <div>
-                  <h2 className="sd-case-title">{item.name}</h2>
-                  <div className="sd-case-company">{item.company}</div>
-                </div>
+        <div className="sd-tabs" role="tablist" aria-label="Case studies">
+          {cases.map((c, i) => (
+            <button
+              key={c.id}
+              type="button"
+              role="tab"
+              id={`sd-tab-${c.id}`}
+              aria-selected={i === activeIdx}
+              aria-controls={`sd-panel-${c.id}`}
+              className={`sd-tab${i === activeIdx ? " active" : ""}`}
+              onClick={() => setActiveIdx(i)}
+            >
+              <span className="n">{`0${i + 1}`}</span>
+              {c.name}
+            </button>
+          ))}
+        </div>
+
+        <div
+          className="card sd-panel"
+          role="tabpanel"
+          id={`sd-panel-${item.id}`}
+          aria-labelledby={`sd-tab-${item.id}`}
+          key={item.id}
+        >
+          <div className="sd-top">
+            <div>
+              <h3 className="sd-title">{item.name}</h3>
+              <div className="sd-company">{item.company}</div>
+              <p className="sd-tagline">{item.tagline}</p>
+            </div>
+            {Array.isArray(item.metrics) && item.metrics.length > 0 && (
+              <div className="sd-metrics">
+                {item.metrics.map((m) => (
+                  <div className="sd-metric" key={m.label}>
+                    <div className="sd-metric-value">{m.value}</div>
+                    <div className="sd-metric-label">{m.label}</div>
+                  </div>
+                ))}
               </div>
-              <p className="sd-case-tagline">{item.tagline}</p>
+            )}
+          </div>
 
-              {Array.isArray(item.metrics) && item.metrics.length > 0 && (
-                <div className="sd-metrics">
-                  {item.metrics.map((m) => (
-                    <div className="sd-metric" key={m.label}>
-                      <div className="sd-metric-value">{m.value}</div>
-                      <div className="sd-metric-label">{m.label}</div>
-                    </div>
+          {Diagram && (
+            <div className="sd-diagram">
+              <Diagram />
+            </div>
+          )}
+
+          <div className="sd-detail">
+            <div>
+              <h4 className="sd-subhead">problem</h4>
+              <p className="sd-problem">{item.problem}</p>
+              {Array.isArray(item.stack) && item.stack.length > 0 && (
+                <div className="sd-stack">
+                  {item.stack.map((tech) => (
+                    <span className="chip" key={tech}>
+                      {tech}
+                    </span>
                   ))}
                 </div>
               )}
-
-              {Diagram && (
-                <Tilt
-                  tiltMaxAngleX={3}
-                  tiltMaxAngleY={3}
-                  glareEnable
-                  glareMaxOpacity={0.08}
-                  glareColor="#ffffff"
-                  scale={1.005}
-                  transitionSpeed={1000}
-                >
-                  <div className="sd-diagram-panel">
-                    <Diagram />
+            </div>
+            <div>
+              <h4 className="sd-subhead">key decisions &amp; tradeoffs</h4>
+              <div className="sd-decisions">
+                {(item.decisions || []).map((d) => (
+                  <div className="sd-decision" key={d.title}>
+                    <div className="sd-decision-title">{d.title}</div>
+                    <div className="sd-decision-detail">{d.detail}</div>
                   </div>
-                </Tilt>
-              )}
-
-              <Row className="sd-detail-row">
-                <Col md={5}>
-                  <h3 className="sd-subhead">Problem</h3>
-                  <p className="sd-problem">{item.problem}</p>
-                  {Array.isArray(item.stack) && item.stack.length > 0 && (
-                    <div className="sd-stack">
-                      {item.stack.map((tech) => (
-                        <span className="sd-stack-badge" key={tech}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </Col>
-                <Col md={7}>
-                  <h3 className="sd-subhead">Key decisions &amp; tradeoffs</h3>
-                  <div className="sd-decisions">
-                    {(item.decisions || []).map((d) => (
-                      <div className="sd-decision" key={d.title}>
-                        <div className="sd-decision-title">{d.title}</div>
-                        <div className="sd-decision-detail">{d.detail}</div>
-                      </div>
-                    ))}
-                  </div>
-                </Col>
-              </Row>
-            </section>
-          );
-        })}
-      </Container>
-    </Container>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

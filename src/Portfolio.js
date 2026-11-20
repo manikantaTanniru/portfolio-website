@@ -16,6 +16,16 @@ const portfolio = {
     },
   
     // =======================
+    // 🔹 Impact highlights (hero stats)
+    // =======================
+    impact: [
+      { value: 3000, unit: "+ hrs", label: "of manual testing eliminated each year by Project Horus", source: "Amazon Robotics" },
+      { prefix: "<", value: 200, unit: "ms", label: "P99 latency held at peak on serverless systems", source: "VeroTX Networks" },
+      { value: 30, unit: "%", label: "fewer customer-impacting failures via retries & circuit breakers", source: "VeroTX Networks" },
+      { value: 40, unit: "%", label: "less manual campaign setup through workflow automation", source: "DarioHealth" },
+    ],
+
+    // =======================
     // 🔹 Skills
     // =======================
     skills: {

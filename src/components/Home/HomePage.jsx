@@ -6,7 +6,7 @@ import Type from "./Type";
 import portfolio from "../../Portfolio";
 
 function HomePage() {
-  const coreStacksList = ["Java", "Spring Boot", "React", "Node.js", "Python", "Kafka", "AWS"];
+  const coreStacksList = ["Java", "Spring Boot", "Kafka", "Python", "AWS", "Azure", "Cosmos DB", "React"];
 
   return (
     <section>

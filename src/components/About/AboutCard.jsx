@@ -7,7 +7,7 @@ import portfolio from "../../Portfolio";
 function AboutCard() {
   const currentRole = portfolio.experience?.[0];
   const topEducation = portfolio.education?.[0];
-  const focusAreas = ["Full-Stack Development", "GenAI Development", "Problem Solving -  DSA"];
+  const focusAreas = ["Distributed Systems & Microservices", "Event-Driven Architecture", "GenAI Development", "Problem Solving - DSA"];
 
   return (
     <Tilt

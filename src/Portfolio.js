@@ -4,15 +4,14 @@ const portfolio = {
     // 🔹 Personal Information
     // =======================
     name: "Manikanta Tanniru",
-    title: "AI Software Engineer | Full-Stack Engineer",
+    title: "Software Engineer | Backend & Distributed Systems",
     subTitle:
       "Half logic, half caffeine, but fully committed to making weird ideas real.",
-    email: "tannirumanikanta1996@gmail.com",
+    email: "tanniru.manikanta96@gmail.com",
     phone: "+1 (408)650-2162",
     location: "San Jose, California, USA",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/manikanta-tanniru-380239252/",
-      github: "https://github.com/manikantaTanniru",
     },
   
     // =======================
@@ -154,20 +153,34 @@ const portfolio = {
     // =======================
     experience: [
       {
+        title: "Software Engineer",
+        company: "Walmart Global Tech, Sunnyvale, CA",
+        duration: "Aug 2026 – Present",
+        details: [
+          "Developing and maintaining Java 17 and Spring Boot microservices supporting Walmart's Last Mile Delivery platform and driver performance metrics.",
+          "Working on backend microservices that process driver trip events and calculate performance metrics for delivery operations.",
+          "Contributing to the migration of the Driver Metrics platform from myMetrics 1.0 to myMetrics 2.0, analyzing existing business logic, event contracts, and calculation workflows.",
+          "Analyzing the end-to-end Driver Standards Service (DSS) event-processing pipeline, including event consumption, prevalidation, conversion, mapping, validation, extraction, enrichment, and metrics aggregation.",
+          "Investigating Cancellation Rate (CR) and On-Time Arrival (OTA) calculations across driver trip scenarios, including cancellations, reschedules, completed trips, and trip-status changes.",
+          "Debugging Kafka-based event-processing workflows to identify discrepancies between incoming trip events, calculated driver metrics, and persisted records in Azure Cosmos DB.",
+          "Troubleshooting missing CR/OTA metrics caused by cancellation reason-code mismatches, event contract changes, trip-status inconsistencies, and validation logic.",
+          "Collaborating with cross-functional engineering and testing teams to investigate failing scenarios, validate event payloads, and align backend processing logic with updated business requirements.",
+          "Supporting backend debugging and API validation using Java, Spring Boot, REST APIs, and event payload analysis to improve the reliability of driver performance calculations.",
+        ],
+      },
+      {
         title: "AI Software Engineer",
         company: "VeroTX Networks, San Jose, CA",
-        duration: "May 2026 – Present",
+        duration: "May 2026 – July 2026",
         details: [
-          "Implemented agent-orchestrated, multi-step AI workflows (planning, generation, evaluation, approval) with throttling, retries, and failure isolation to safely handle hundreds of concurrent AI requests.",
-          "Architected low-latency, highly available serverless and microservices systems using AWS Lambda, DynamoDB, SQS, and Step Functions, maintaining P99 latency under 200ms during peak traffic.",
-          "Designed and developed Java 17/Spring Boot microservices and REST APIs for scalable backend services supporting AI workflow orchestration.",
-          "Built event-driven services using Kafka and ActiveMQ, implementing retries, dead-letter queues, idempotency, and asynchronous processing for reliable message delivery.",
-          "Containerized services using Docker and deployed them on Kubernetes using Helm charts, improving deployment consistency across environments.",
-          "Built and operationalized production AI/LLM platforms using Amazon Bedrock to automate personalized content generation, reducing manual content creation effort by 68%.",
-          "Implemented secure service communication using Spring Security, OAuth2, and JWT-based authentication and authorization.",
-          "Strengthened system resilience with timeouts, retries, circuit breakers, and graceful fallbacks, reducing customer-impacting failures by 30%.",
-          "Wrote automated unit tests with JUnit and Mockito and participated in integration testing to improve code quality and release stability.",
-          "Established end-to-end observability using CloudWatch and Prometheus with structured logging, dashboards, and alerts, reducing mean time to detect (MTTD) by 40%.",
+          "Designed, built, tested, deployed, and operated large-scale backend services and distributed applications, owning functionality throughout the complete software development lifecycle.",
+          "Architected low-latency, highly available serverless and microservices-based systems using AWS Lambda, DynamoDB, SQS, and Step Functions, maintaining P99 latency under 200 ms during peak workloads.",
+          "Designed scalable service architectures using established software design patterns for fault tolerance, asynchronous processing, extensibility, and failure isolation.",
+          "Designed and developed high-throughput REST APIs using Java, Node.js, and TypeScript, incorporating validation, idempotency, error handling, and maintainable API contracts.",
+          "Applied distributed-system reliability patterns including timeouts, retries, circuit breakers, graceful fallbacks, and failure isolation, reducing customer-impacting failures by 30%.",
+          "Designed secure, versioned persistence solutions using DynamoDB, supporting millions of artifacts, workflow approvals, and audit records with IAM-based access controls.",
+          "Performed production troubleshooting and root-cause analysis, identifying systemic issues and implementing long-term corrective actions.",
+          "Implemented agent-orchestrated AI workflows with throttling, retries, evaluation, approval, and failure isolation while safely supporting hundreds of concurrent requests.",
         ],
       },
       {
@@ -175,40 +188,42 @@ const portfolio = {
         company: "Amazon, Sunnyvale, CA",
         duration: "Feb 2025 – May 2026",
         details: [
-          "Developed Java Spring Boot microservices and backend services supporting event-driven integrations across Amazon Robotics platforms.",
-          "Worked on Hummingbird, an event-driven integration platform enabling real-time data exchange across Amazon Robotics systems and external partners.",
-          "Designed and implemented workflow-based integrations across systems like Oracle EBS, Kinaxis, PLM, SAP, and Proplanner; built AWS-based orchestration pipelines using Step Functions, EventBridge, Lambda, and SQS.",
-          "Built large-scale dataset transformation pipelines using PySpark and Spark SQL on Databricks, processing millions of records for downstream analytics and content workflows.",
-          "Contributed to self-service workflow onboarding, reducing onboarding time significantly; supported high-scale systems handling 100K+ requests/sec and 300+ API routes per tenant.",
-          "Led the end-to-end architecture and implementation of Project Horus, an automated testing platform that reduced manual testing effort by over 3000 hours annually.",
-          "Designed and helped implement a new user-facing portal on top of the Mockingbird access automation service, giving users a single place to view teams, app access, and status instead of scattered wiki pages.",
-          "Worked with Docker, Kubernetes, and Terraform across CI/CD pipelines to support cloud-native application delivery.",
+          "Designed, developed, tested, deployed, and operated distributed software systems for Amazon Robotics, from requirements and architecture through release and production support.",
+          "Worked on Hummingbird, an event-driven integration platform enabling reliable data exchange between Amazon Robotics applications and enterprise systems.",
+          "Designed and implemented workflow-based integrations between Oracle EBS, Kinaxis, PLM, SAP, Proplanner, and downstream Amazon systems.",
+          "Built scalable AWS orchestration pipelines using Step Functions, EventBridge, Lambda, SQS, DynamoDB, S3, and CloudWatch, supporting resilient asynchronous processing.",
+          "Applied distributed-system principles including asynchronous processing, loose coupling, retries, idempotency, failure handling, and service isolation.",
+          "Optimized backend services, database queries, and integration workflows to improve performance, response latency, throughput, and reliability.",
+          "Worked on the end-to-end architecture and implementation of Project Horus, an automated testing platform that reduced manual business-process testing by more than 3,000 hours annually.",
+          "Designed and helped implement a user-facing portal for the Mockingbird access automation platform, giving users a centralized view of teams, application access, and authorization status.",
+          "Optimized distributed backend flows between Self-Service Lambda, Connector Lambdas, and DeprovisionService, improving reliability of automated access-management workflows.",
         ],
       },
       {
         title: "Full Stack Developer",
         company: "DarioHealth, USA",
-        duration: "June 2023 – Feb 2025",
+        duration: "Dec 2023 – Feb 2025",
         details: [
-          "Built dynamic frontend applications using React and TypeScript, improving responsiveness by 30%.",
-          "Developed dashboards and data visualizations using Chart.js, D3.js, and Highcharts.",
-          "Implemented RESTful APIs and GraphQL services, improving data fetching efficiency and reducing latency by 35%.",
-          "Worked across full SDLC including design, development, and deployment using Agile practices.",
+          "Designed and developed production backend and full-stack applications using Java, Node.js, REST APIs, React, and AWS for complex healthcare and enterprise workflows.",
+          "Designed scalable backend services using microservices and RESTful architecture, applying reusable design patterns and clean service boundaries.",
+          "Built backend services for automated campaign and content workflows, reducing manual campaign setup effort by approximately 40%.",
+          "Built event-driven and asynchronous processing workflows using AWS services to improve scalability and decouple application components.",
+          "Developed AWS Lambda and Step Functions automation for multi-stage generation, validation, and approval workflows.",
         ],
       },
       {
         title: "Software Developer",
         company: "Veritas Software, India",
-        duration: "June 2019 – July 2021",
+        duration: "June 2019 – Jan 2021",
         details: [
-          "Developed backend services using Django and Flask with REST APIs and authentication.",
-          "Built scalable applications using Spring MVC, Spring Core, and Hibernate.",
-          "Improved system performance by 40% through optimized database interactions.",
-          "Enhanced system reliability by 20% through robust backend design.",
+          "Designed and developed backend applications and REST APIs using Java, Python, Django, and Flask, including authentication and database integrations.",
+          "Applied Java 8 Streams, Lambda expressions, multithreading, and Concurrency APIs to improve application performance, maintainability, and reliability.",
+          "Designed data persistence and versioning solutions using DynamoDB and relational databases, supporting content iterations, approvals, and audit history.",
+          "Investigated application defects and production issues, performed root-cause analysis, and implemented fixes to improve system reliability.",
         ],
       },
     ],
-  
+
   // =======================
 // 🔹 Projects
 // =======================
@@ -228,7 +243,6 @@ projects: [
     ],
     description:
       "Gen-AI voice-based inventory system for small retail (Kirana) stores. Supports multilingual voice input using Whisper and processes commands using LLM workflows. Enables users to add, update, and query inventory through natural conversation.",
-    github: "https://github.com/manikantaTanniru/kirana.ai",
     demo: "",
   },
   {
@@ -244,7 +258,6 @@ projects: [
     ],
     description:
       "AI chatbot that answers questions about my experience and projects using retrieval-based generation. Uses vector embeddings for context and is deployed on GCP with dynamic document ingestion.",
-    github: "https://github.com/manikantaTanniru/Profile_bot",
     demo: "",
   },
   {
@@ -253,28 +266,24 @@ projects: [
     techStack: ["React.js", "Flask", "REST API", "OpenSky API"],
     description:
       "Flight search application that fetches and visualizes real-time flight data using OpenSky APIs, with filtering and user-friendly UI for exploration.",
-    github: "https://github.com/manikantaTanniru/skypath-flight-search",
     demo: "",
   },
   {
     name: "RAG-as-a-Service",
     tags: ["GenAI", "RAG"],
     techStack: ["Python", "Claude 3.5 Sonnet", "Ragie.ai", "Streamlit"],
-    github: "https://github.com/manikantaTanniru/rag-as-a-service",
     demo: "",
   },
   {
     name: "AI Health & Fitness Agent",
     tags: ["GenAI", "Agents"],
     techStack: ["Python", "Agno", "Google Gemini", "Streamlit"],
-    github: "https://github.com/manikantaTanniru/ai_health_fitness_agent",
     demo: "",
   },
   {
     name: "Voice AI Agents",
     tags: ["GenAI", "Voice AI", "RAG"],
     techStack: ["Python", "OpenAI SDK", "Qdrant", "LangChain", "Streamlit"],
-    github: "https://github.com/manikantaTanniru/voice-ai-agents",
     demo: "",
   }
 ],
@@ -397,13 +406,12 @@ projects: [
     // 🔹 About Me
     // =======================
     about:
-      "Hi, I’m Manikanta Tanniru, a Software Engineer with 6+ years building high-scale backend, microservices, and AI-powered platforms. I specialize in Java/Spring Boot microservices, event-driven systems with Kafka, production LLM integration, and cloud-native system design. Currently an AI Software Engineer at VeroTX Networks, I build agent-orchestrated AI workflows and low-latency serverless systems on AWS. Previously at Amazon Robotics, I worked on Hummingbird, Horus, and Mockingbird — building integrations across enterprise systems and improving automation at scale. I enjoy translating complex business problems into measurable efficiency, cost, and productivity gains.",
+      "Hi, I’m Manikanta Tanniru, a Software Development Engineer with 5+ years designing, building, and maintaining scalable distributed systems and cloud-native applications. I specialize in Java/Spring Boot microservices, REST APIs, event-driven architectures with Apache Kafka, and system design. Currently a Software Engineer at Walmart Global Tech, I work on Last Mile Delivery backend microservices and driver performance metrics, including the myMetrics 2.0 migration. Previously I built agent-orchestrated AI workflows and low-latency serverless systems at VeroTX Networks, and at Amazon Robotics I worked on Hummingbird, Project Horus, and Mockingbird, building enterprise integrations and automation at scale.",
     // =======================
     // 🔹 Contact Info
     // =======================
-    email: "tannirumanikanta1996@gmail.com",
+    email: "tanniru.manikanta96@gmail.com",
     linkedin: "https://www.linkedin.com/in/manikanta-tanniru",
-    github: "https://github.com/manikantaTanniru"
   };
   
   export default portfolio;
